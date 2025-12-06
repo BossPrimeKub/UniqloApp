@@ -1,0 +1,80 @@
+name: uniqloapp
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/uniqlo1.webp
+    - assets/uniqlo2.webp
+    - assets/uniqlo3.webp
+    - assets/uniqlo4.webp
+    - assets/uniqlo5.webp
+    - assets/uniqlo6.webp
+    - assets/uniqlo7.webp
+    - assets/uniqlo8.webp
+    - assets/uniqlo9.webp
+    - assets/uniqlo10.webp
+    - assets/uniqlo11.webp
+    - assets/uniqlo12.webp
+    - assets/uniqlo13.webp
+    - assets/uniqlo14.webp
+    - assets/uniqlo15.webp
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
