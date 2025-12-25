@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'model/uniqlo.dart';
+import 'uniqlo_detail.dart';
 
 void main() {
   runApp(const UniqloApp());
@@ -11,13 +12,7 @@ class UniqloApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'UNIQLO SHIRT'),
     );
   }
@@ -32,38 +27,47 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: Text(widget.title)
+        backgroundColor: Colors.red,
+        title: Text(widget.title),
+        centerTitle: true,
       ),
-      body: SafeArea(child: Container(
-        child: ListView.builder(
-          itemCount: Uniqlo.samples.length,
-          itemBuilder: (BuildContext context, int index) {
-            // itemBuilder will work as for loop to generate list item
-            // return a widget for each item list
-            return buildRecipeCard(Uniqlo.samples[index]); //call functions
-          },
-        ),
-      )
-      ),
-    );
-  }
-
-  Widget buildRecipeCard(Uniqlo uniqlo) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Image(image: AssetImage(uniqlo.imgUrl)),
-          Text(uniqlo.imgTitle),
-        ],
+      body: ListView.builder(
+        itemCount: Uniqlo.samples.length,
+        itemBuilder: (context, index) {
+          final product = Uniqlo.samples[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => UniqloDetail(product: product),
+                ),
+              );
+            },
+            child: Card(
+              margin: const EdgeInsets.all(12),
+              child: Column(
+                children: [
+                  Image.asset(product.imgUrl),
+                  const SizedBox(height: 8),
+                  Text(
+                    product.name,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 }
-// Hello World
-
